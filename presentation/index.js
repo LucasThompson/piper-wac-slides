@@ -122,7 +122,7 @@ const uglyDucklingSlide = (
 const liveCodingSlide = (
   <Slide>
     <Heading size={6}>Live Coding</Heading>
-    <Iframe url="https://stackblitz.com/edit/piano-roll-component?embed=1&file=index.js&hideExplorer=1&hideNavigation=1"
+    <Iframe url="https://stackblitz.com/edit/melody-transcriber?embed=1&file=Transcriber.ts&hideExplorer=1&hideNavigation=1"
       display="block"
       position="relative"
       height="600px"
