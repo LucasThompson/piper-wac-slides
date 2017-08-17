@@ -24,8 +24,8 @@ import {
 import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
-// import createTheme from "spectacle/lib/themes/default";
 import theme from "../themes/seattlejs/index.js";
+theme.screen.global.body.backgroundImage = null; // get rid of the gradient
 import Iframe from "react-iframe";
 
 // Require CSS
@@ -72,25 +72,25 @@ const introSlide = (
 );
 
 const whatIsThisSlide = (
-  <Slide>
+  <Slide bgColor="white">
     <Heading size={6}>What is this?</Heading>
   </Slide>
 );
 
 const featureExtractionSlide = (
-  <Slide>
+  <Slide bgColor="white">
     <Heading size={6}>Feature Extraction</Heading>
   </Slide>
 );
 
 const existingExtractorsSlide = (
-  <Slide>
+  <Slide bgColor="white">
     <Heading size={6}>Existing Extractors</Heading>
   </Slide>
 );
 
 const piperOverviewSlide = (
-  <Slide><Heading size={6}>Piper Overview</Heading></Slide>
+  <Slide bgColor="white"><Heading size={6}>Piper Overview</Heading></Slide>
 );
 
 const uglyDucklingSlide = (
@@ -120,8 +120,8 @@ const uglyDucklingSlide = (
 );
 
 const liveCodingSlide = (
-  <Slide>
-    <Heading size={6}>Live Coding</Heading>
+  <Slide bgColor="white">
+    <Heading size={6}>Let's make something</Heading>
     <Iframe url="https://stackblitz.com/edit/melody-transcriber?embed=1&file=Transcriber.ts&hideExplorer=1&hideNavigation=1"
       display="block"
       position="relative"
@@ -133,7 +133,7 @@ const liveCodingSlide = (
 );
 
 const wrapUpSlide = (
-  <Slide>
+  <Slide bgColor="white">
     <Heading size={6}>What was this?</Heading>
   </Slide>
 );
@@ -182,8 +182,17 @@ export default class Presentation extends React.Component {
         theme={theme}
         transition={["fade"]}
         transitionDuration={500}
+        style={{
+          background: 'black',
+          backgroundImage: null
+        }}
       >
-        {orderedSlides}
+        {
+          orderedSlides.map((Slide, i) => React.cloneElement(
+            Slide,
+            {key: i}
+          ))
+        }
       </Deck>
     );
   }
