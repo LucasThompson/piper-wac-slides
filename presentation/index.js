@@ -190,12 +190,12 @@ const piperProtocolSlide = (
     <Text fit={true}>Set of structures and verbs for requesting feature extraction</Text>
     <List>
       <Appear>
-        <ListItem textSize={32}><i>list, load, configure, process, finish</i></ListItem>
-      </Appear>
-      <Appear>
         <ListItem textSize={32}>
           Client-server model - a useful abstraction
         </ListItem>
+      </Appear>
+      <Appear>
+        <ListItem textSize={32}><i>list, load, configure, process, finish</i></ListItem>
       </Appear>
       <Appear>  
         <ListItem textSize={32}>Can drive remote feature extraction services</ListItem>
