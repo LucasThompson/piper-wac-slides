@@ -66,7 +66,9 @@ const images = {
   piperExamples: require("../assets/05-piper-examples.png"),
   svScreen: require("../assets/sv-3.0-win.png"),
   qmLogo: require("../assets/qm.png"), 
-  c4dmLogo: require("../assets/c4dm.png")
+  c4dmLogo: require("../assets/c4dm.png"),
+  creativeCommons: require("../assets/cc.svg"),
+  epsrcLogo: require("../assets/epsrc.png")
 };
 
 preloader(images);
@@ -326,6 +328,18 @@ const wrapUpSlide = (
     <Appear>
       <Text textSize={32}>https://github.com/piper-audio</Text>
     </Appear>
+   <Appear>
+    <div>
+    <Layout>
+      <Fill>
+      <Image width={'10%'} src={images.creativeCommons}/>
+      <span>  </span>
+      <Image width={'25%'} src={images.epsrcLogo}/>
+      <Text textSize={16}>Supported by EPSRC Platform Grant EP/K009559/1</Text>
+      </Fill>
+    </Layout>
+    </div>
+   </Appear>
   </Slide>
 );
 
