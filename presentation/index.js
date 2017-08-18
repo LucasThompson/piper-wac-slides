@@ -122,7 +122,7 @@ const uglyDucklingSlide = (
 const liveCodingSlide = (
   <Slide bgColor="white">
     <Heading size={6}>Let's make something</Heading>
-    <Iframe url="https://stackblitz.com/edit/melody-transcriber?embed=1&file=Transcriber.ts&hideExplorer=1&hideNavigation=1"
+    <Iframe url="https://stackblitz.com/edit/melody-transcriber?embed=1&file=Transcriber.tsx&hideExplorer=1&hideNavigation=1"
       display="block"
       position="relative"
       height="600px"
