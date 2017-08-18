@@ -108,11 +108,11 @@ const customTheme = {
       },
       code: {
         color: brand.darkGray,
-        fontFamily: fonts.monospace
+        fontFamily: 'Monospace'
       }
     },
     code: {
-      fontFamily: fonts.monospace
+      fontFamily: 'Monospace'
     },
     heading: {
       h1: {
