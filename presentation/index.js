@@ -280,7 +280,7 @@ const uglyDucklingSlide = (
 );
 
 const liveCodingSlide = (
-  <Slide bgColor="white">
+  <Slide bgColor="white" align={"flex-start flex-start"}>
     <Heading size={6}>Let's make something</Heading>
     <Iframe url="https://stackblitz.com/edit/melody-transcriber?embed=1&file=Transcriber.tsx&hideExplorer=1&hideNavigation=1"
       display="block"
@@ -296,8 +296,8 @@ const wrapUpSlide = (
   <Slide bgColor="white">
     <Heading size={6}>What was this?</Heading>
     <List>
-      <Appear><ListItem textSize={25}>Build cross-platform audio analysis apps with web tech</ListItem></Appear>
-      <Appear><ListItem textSize={25}>Tools for bringing existing work to the browsre</ListItem></Appear>
+      <Appear><ListItem textSize={25}>Building cross-platform audio analysis apps with web technologies</ListItem></Appear>
+      <Appear><ListItem textSize={25}>Tools for bringing existing work to the browser</ListItem></Appear>
       <Appear><ListItem textSize={25}>Used in SV 3.0 for out of process extraction, potential JS extractors</ListItem></Appear>
       <Appear><ListItem textSize={25}>A prototype app showcasing possibilities</ListItem></Appear>
       <Appear><ListItem textSize={25}>Quick tour</ListItem></Appear>
