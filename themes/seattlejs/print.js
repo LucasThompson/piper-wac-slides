@@ -249,15 +249,14 @@ export default {
       margin: "0.5rem auto"
     },
     link: {
-      textDecoration: "none"
+      textDecoration: "underline"
     },
     listItem: {
       fontSize: "2.66rem"
     },
     list: {
       textAlign: "left",
-      listStylePosition: "inside",
-      padding: 0
+      listStylePosition: "outside"
     },
     s: {
       strikethrough: {}

@@ -37,14 +37,14 @@ _:-moz-tree-row(hover), ul .appear {
 }
 
 a, a:link {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+  fill: rgba(0, 0, 0, 0.5) !important;
   transition: color 250ms ease-in, fill 250ms ease-in;
 }
 
 a:hover, a:focus {
-  color: rgba(255, 255, 255, 0.5) !important;
-  fill: rgba(255, 255, 255, 0.5) !important;
+  color: rgba(0, 0, 0, 0.2) !important;
+  fill: rgba(0, 0, 0, 0.2) !important;
   transition: color 400ms ease-out, fill 400ms ease-out;
 }
 
@@ -129,7 +129,7 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #373534;
+	/* background: #373534; */
 }
 
 /* Inline code */

@@ -26,6 +26,13 @@ import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
 import theme from "../themes/seattlejs/index.js";
+const {padding, ...screenListStyles} = theme.screen.components.list;
+const bodgeBullets = {
+  ...screenListStyles,
+  listStylePosition: 'outside'
+};
+theme.screen.components.list = bodgeBullets
+theme.screen.components.link = 'underline';
 theme.screen.global.body.backgroundImage = null; // get rid of the gradient
 import Iframe from "react-iframe";
 
@@ -101,17 +108,17 @@ const whatIsThisSlide = (
     </Appear>
     <List>
       <Appear>
-        <ListItem textSize={32}>
+        <ListItem textSize={36}>
           Tools &amp; opinions for doing audio feature extraction
         </ListItem>
       </Appear>
       <Appear>
-        <ListItem textSize={32}>
+        <ListItem textSize={36}>
           Re-uses existing work (especially Vamp plugins)
         </ListItem>
       </Appear>
       <Appear>
-        <ListItem textSize={32}>
+        <ListItem textSize={36}>
           Brings it to the browser
         </ListItem>
       </Appear>
@@ -172,14 +179,14 @@ const vampOverviewSlide = (
 const existingExtractorsSlide = (
   <Slide bgColor="white">
     <Heading size={3}>Existing Extractors</Heading>
-    <Text textSize={32}>
+    <Text textSize={36}>
     There's a bunch of useful extractors already as native Vamp plugins (C++)
     </Text>
     <List>
-      <Appear><ListItem textSize={32}>NNLS Chroma and Chordino</ListItem></Appear>
-      <Appear><ListItem textSize={32}>pYIN - Pitch and Note tracking </ListItem></Appear>
-      <Appear><ListItem textSize={32}>QM Vamp Plugins (Beat tracker, tempo, segmentation, transcription)</ListItem></Appear>
-      <Appear><ListItem textSize={32}>Many more...</ListItem></Appear>
+      <Appear><ListItem textSize={36}>NNLS Chroma and Chordino</ListItem></Appear>
+      <Appear><ListItem textSize={36}>pYIN - Pitch and Note tracking </ListItem></Appear>
+      <Appear><ListItem textSize={36}>QM Vamp Plugins (Beat tracker, tempo, segmentation, transcription)</ListItem></Appear>
+      <Appear><ListItem textSize={36}>Many more...</ListItem></Appear>
     </List>
   </Slide>
 );
@@ -190,21 +197,21 @@ const piperProtocolSlide = (
     <Text fit={true}>Set of structures and verbs for requesting feature extraction</Text>
     <List>
       <Appear>
-        <ListItem textSize={32}>
+        <ListItem textSize={36}><i>list, load, configure, process, finish</i></ListItem>
+      </Appear>
+      <Appear>
+        <ListItem textSize={36}>
           Client-server model - a useful abstraction
         </ListItem>
       </Appear>
-      <Appear>
-        <ListItem textSize={32}><i>list, load, configure, process, finish</i></ListItem>
-      </Appear>
       <Appear>  
-        <ListItem textSize={32}>Can drive remote feature extraction services</ListItem>
+        <ListItem textSize={36}>Can drive remote feature extraction services</ListItem>
       </Appear>
       <Appear>
-      <ListItem textSize={32}>Can cross language &amp; process boundaries in single application</ListItem>
+      <ListItem textSize={36}>Can cross language &amp; process boundaries in single application</ListItem>
       </Appear>
       <Appear>
-      <ListItem textSize={32}>Defined as JSON and Cap’n Proto schemas</ListItem>
+      <ListItem textSize={36}>Defined as JSON and Cap’n Proto schemas</ListItem>
       </Appear>
     </List>
   </Slide>
@@ -225,17 +232,38 @@ const jsonConfigReq = `{
   }
 }`;
 
+const serviceInterface = `
+interface Service {
+  list(r: ListRequest): Promise<ListResponse>;
+  load(r: LoadRequest): Promise<LoadResponse>;
+  configure(r: ConfigRequest): Promise<ConfigResponse>;
+  process(r: ProcessRequest): Promise<ProcessResponse>;
+  finish(r: FinishRequest): Promise<FinishResponse>;
+}
+`
+
 const piperLevels = (
   <Slide bgColor="white">
     <Heading size={3}>Piper Protocol</Heading>
     <Text fit={true}>
       Low-level / Stateful: configure and drive an extractor block-by-block
     </Text>
-    <CodePane 
-      textSize={20}
-      lang={'javascript'}
-      source={jsonConfigReq}
-    />
+    <Layout style={{background: '#2d2d2d'}}>
+      <Fill>
+        <CodePane 
+          textSize={18}
+          lang={'javascript'}
+          source={jsonConfigReq}
+        />
+      </Fill>
+      <Fill style={{marginTop: '5%'}}>
+        <CodePane 
+          textSize={18}
+          lang={'javascript'}
+          source={serviceInterface}
+        />
+      </Fill>
+    </Layout>
     <Text fit={true}>
       High-level / Stateless: "here's the audio, give me the features"
     </Text>
@@ -252,22 +280,22 @@ const piperDiagram = (
 const piperOverviewSlide = (
   <Slide bgColor="white">
   <Heading size={3}>Piper Overview</Heading>
-  <Text textSize={32}>We've been working on:</Text>
+  <Text textSize={36}>We've been working on:</Text>
   <List>
-    <Appear><ListItem textSize={32}>
+    <Appear><ListItem textSize={36}>
       Piper "protocol" – for driving feature extractors
     </ListItem></Appear>
-    <Appear><ListItem textSize={32}>
+    <Appear><ListItem textSize={36}>
       Piper-Vamp bridge – recompile C++ Vamp plugins to JS
     </ListItem></Appear>
-    <Appear><ListItem textSize={32}>
+    <Appear><ListItem textSize={36}>
       Piper.js – library for building / using clients &amp; servers
     </ListItem></Appear>
-    <Appear><ListItem textSize={32}>
+    <Appear><ListItem textSize={36}>
       "Ugly Duckling" - tech demo web app using Piper.js
     </ListItem></Appear>
     <Appear>
-      <ListItem textSize={32}>
+      <ListItem textSize={36}>
          Sonic Visualiser 3.0 - A shipped Piper client
       </ListItem>
     </Appear>
@@ -281,11 +309,11 @@ const uglyDucklingSlide = (
       <Fill>
         <Heading size={3}>Ugly Duckling</Heading>
         <List>
-            <Appear><ListItem textSize={25}>Built with Angular 4 &amp; waves-ui</ListItem></Appear>
-            <Appear><ListItem textSize={25}>Bundled with basic extractors</ListItem></Appear>
-            <Appear><ListItem textSize={25}>Can dynamically load modules</ListItem></Appear>
-            <Appear><ListItem textSize={25}>Extraction happens in a Worker</ListItem></Appear>
-            <Appear><ListItem textSize={25}>Uses Piper.js Streaming client</ListItem></Appear>
+            <Appear><ListItem textSize={32}>Built with Angular 4 &amp; waves-ui</ListItem></Appear>
+            <Appear><ListItem textSize={32}>Bundled with basic extractors</ListItem></Appear>
+            <Appear><ListItem textSize={32}>Can dynamically load modules</ListItem></Appear>
+            <Appear><ListItem textSize={32}>Extraction happens in a Worker</ListItem></Appear>
+            <Appear><ListItem textSize={32}>Uses Piper.js Streaming client</ListItem></Appear>
         </List>
       </Fill>
       <Fill>
@@ -319,14 +347,19 @@ const wrapUpSlide = (
   <Slide bgColor="white">
     <Heading size={3}>What was this?</Heading>
     <List>
-      <Appear><ListItem textSize={26}>Building cross-platform audio analysis apps with web technologies</ListItem></Appear>
-      <Appear><ListItem textSize={26}>Tools for bringing existing work to the browser</ListItem></Appear>
-      <Appear><ListItem textSize={26}>Used in SV 3.0 for out of process extraction, potential JS extractors</ListItem></Appear>
-      <Appear><ListItem textSize={26}>A prototype app showcasing possibilities</ListItem></Appear>
-      <Appear><ListItem textSize={26}>Quick tour</ListItem></Appear>
+      <Appear><ListItem textSize={36}>Building cross-platform audio analysis apps with web technologies</ListItem></Appear>
+      <Appear><ListItem textSize={36}>Tools for bringing existing work to the browser</ListItem></Appear>
+      <Appear><ListItem textSize={36}>Used in SV 3.0 for out of process extraction, potential JS extractors</ListItem></Appear>
+      <Appear><ListItem textSize={36}>A prototype app showcasing possibilities</ListItem></Appear>
+      <Appear><ListItem textSize={36}>Quick tour</ListItem></Appear>
     </List>
     <Appear>
-      <Text textSize={32}>https://github.com/piper-audio</Text>
+      <Link
+        textSize={42}
+        href={'https://github.com/piper-audio'}
+      >
+        https://github.com/piper-audio
+      </Link>
     </Appear>
    <Appear>
     <div>

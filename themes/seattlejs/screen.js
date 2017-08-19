@@ -107,7 +107,7 @@ const customTheme = {
         height: "100%",
       },
       code: {
-        color: brand.darkGray,
+        // color: brand.darkGray,
         fontFamily: 'Monospace'
       }
     },
