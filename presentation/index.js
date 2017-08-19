@@ -180,7 +180,7 @@ const existingExtractorsSlide = (
   <Slide bgColor="white">
     <Heading size={3}>Existing Extractors</Heading>
     <Text textSize={36}>
-    There's a bunch of useful extractors already as native Vamp plugins (C++)
+    There's a bunch of useful extractors already available as native Vamp plugins (C++)
     </Text>
     <List>
       <Appear><ListItem textSize={36}>NNLS Chroma and Chordino</ListItem></Appear>
