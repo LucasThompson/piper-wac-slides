@@ -285,11 +285,6 @@ const piperOverviewSlide = (
     <Appear><ListItem textSize={36}>
       Piper "protocol" – for driving feature extractors
     </ListItem></Appear>
-    <Appear>
-      <ListItem textSize={36}>
-         Sonic Visualiser 3.0 - A shipped Piper client
-      </ListItem>
-    </Appear>
     <Appear><ListItem textSize={36}>
       Piper-Vamp bridge – recompile C++ Vamp plugins to JS
     </ListItem></Appear>
@@ -299,6 +294,11 @@ const piperOverviewSlide = (
     <Appear><ListItem textSize={36}>
       "Ugly Duckling" - tech demo web app using Piper.js
     </ListItem></Appear>
+    <Appear>
+      <ListItem textSize={36}>
+         Sonic Visualiser 3.0 - A shipped Piper client
+      </ListItem>
+    </Appear>
   </List>
   </Slide>
 );
