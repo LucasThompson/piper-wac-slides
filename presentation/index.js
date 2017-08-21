@@ -294,11 +294,6 @@ const piperOverviewSlide = (
     <Appear><ListItem textSize={36}>
       "Ugly Duckling" - tech demo web app using Piper.js
     </ListItem></Appear>
-    <Appear>
-      <ListItem textSize={36}>
-         Sonic Visualiser 3.0 - A shipped Piper client
-      </ListItem>
-    </Appear>
   </List>
   </Slide>
 );
