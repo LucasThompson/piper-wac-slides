@@ -1,6 +1,7 @@
 # Piper: Audio Feature Extraction in Browser and Mobile Applications @ WAC 2017
 
 [Published slides](http://lucasthompson.github.io/piper-wac-slides/)
+
 [Video](https://youtu.be/OpUeyRRPpCo?t=33m10s)
 
 ## Development
